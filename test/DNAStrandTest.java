@@ -26,13 +26,14 @@ public class DNAStrandTest {
     public void ShouldReturnLengthAs4IfNucleotidesLengthIs4() {
         List<Nucleotide> nucleotides = getNucleotides();
         DNAStrand dnaStrand = new DNAStrand(nucleotides);
-        assertTrue(4==dnaStrand.getLength());
+        assertTrue(4 == dnaStrand.getLength());
     }
+
     @Test
     public void ShouldNotReturnLengthAs2IfNucleotidesLengthIs4() {
         List<Nucleotide> nucleotides = getNucleotides();
         DNAStrand dnaStrand = new DNAStrand(nucleotides);
-        assertFalse(2==dnaStrand.getLength());
+        assertFalse(2 == dnaStrand.getLength());
     }
 
     private List<Nucleotide> getNucleotides() {

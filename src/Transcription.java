@@ -9,9 +9,9 @@ class Transcription {
         this.nucleotideMap = nucleotideMap;
     }
 
-    RNAStrand getRNAComplement(DNAStrand dnaStrand,int strandLength) {
-        List<Nucleotide> nucleotides=new ArrayList<>();
-        for(int i=0;i<strandLength;i++){
+    RNAStrand getRNAComplement(DNAStrand dnaStrand, int strandLength) {
+        List<Nucleotide> nucleotides = new ArrayList<>();
+        for (int i = 0; i < strandLength; i++) {
             nucleotides.add(nucleotideMap.get(dnaStrand.getNucleotide(i)));
         }
         return new RNAStrand(nucleotides);
