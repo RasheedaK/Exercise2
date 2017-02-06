@@ -23,6 +23,6 @@ class Nucleotide {
 
     @Override
     public String toString() {
-        return ""+base;
+        return "" + base;
     }
 }
