@@ -22,6 +22,20 @@ public class RNAStrandTest {
         assertNotEquals(expectedNucleotide, rnaStrand.getNucleotide(2));
     }
 
+    @Test
+    public void ShouldReturnLengthAs4IfNucleotidesLengthIs4() {
+        List<Nucleotide> nucleotides = getNucleotides();
+        RNAStrand rnaStrand = new RNAStrand(nucleotides);
+        assertTrue(4 == rnaStrand.getLength());
+    }
+
+    @Test
+    public void ShouldNotReturnLengthAs2IfNucleotidesLengthIs4() {
+        List<Nucleotide> nucleotides = getNucleotides();
+        RNAStrand rnaStrand = new RNAStrand(nucleotides);
+        assertFalse(2 == rnaStrand.getLength());
+    }
+
     private List<Nucleotide> getNucleotides() {
         List<Nucleotide> nucleotides = new ArrayList<>();
         nucleotides.add(new Nucleotide('C'));

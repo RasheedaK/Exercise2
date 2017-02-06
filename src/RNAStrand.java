@@ -11,4 +11,8 @@ class RNAStrand {
     Nucleotide getNucleotide(int index) {
         return nucleotides.get(index);
     }
+
+    int getLength() {
+        return this.nucleotides.size();
+    }
 }

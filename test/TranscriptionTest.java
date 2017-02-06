@@ -32,6 +32,18 @@ public class TranscriptionTest {
         assertEquals(new Nucleotide('G'), expectedRNAStrand.getNucleotide(1));
     }
 
+    @Test
+    public void shouldNotReturnRNAStrandWhichContainsThiamineAtIndex0ForGivenDNA() {
+        Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
+        Transcription transcription = new Transcription(nucleotideMap);
+        List<Nucleotide> nucleotides = new ArrayList<>();
+        nucleotides.add(new Nucleotide('A'));
+        nucleotides.add(new Nucleotide('C'));
+        DNAStrand dnaStrand = new DNAStrand(nucleotides);
+        RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
+        assertNotEquals(new Nucleotide('T'), expectedRNAStrand.getNucleotide(0));
+    }
+
     private Map<Nucleotide, Nucleotide> getNucleotideMap() {
         Map<Nucleotide, Nucleotide> nucleotideMap = new HashMap<>();
         nucleotideMap.put(new Nucleotide('A'), new Nucleotide('U'));
