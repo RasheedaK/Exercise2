@@ -20,6 +20,17 @@ public class TranscriptionTest {
     }
 
     @Test
+    public void shouldReturnUAdenineInRNAStrandForThiamine() {
+        Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
+        Transcription transcription = new Transcription(nucleotideMap);
+        List<Nucleotide> nucleotides = new ArrayList<>();
+        nucleotides.add(new Nucleotide('U'));
+        DNAStrand dnaStrand = new DNAStrand(nucleotides);
+        RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
+        assertEquals(new Nucleotide('A'), expectedRNAStrand.getNucleotide(0));
+    }
+
+    @Test
     public void shouldReturnCytosineInRNAStrandForGuanine() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
