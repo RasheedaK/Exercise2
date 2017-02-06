@@ -20,4 +20,9 @@ class Nucleotide {
     public int hashCode() {
         return (int) base;
     }
+
+    @Override
+    public String toString() {
+        return ""+base;
+    }
 }

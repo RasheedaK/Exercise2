@@ -18,5 +18,8 @@ public class Main {
         }
         DNAStrand dnaStrand=new DNAStrand(inputStrand);
         RNAStrand resultStrand=transcription.getRNAComplement(dnaStrand,dnaStrand.getLength());
+        for(int i=0;i<resultStrand.getLength();i++){
+            System.out.println(resultStrand.getNucleotide(i));
+        }
     }
 }
