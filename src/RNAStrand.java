@@ -1,7 +1,14 @@
-package PACKAGE_NAME;
+import java.util.List;
 
-/**
- * Created by krashee on 06/2017.
- */
-public class RNAStrand {
+class RNAStrand {
+    private final List<Nucleotide> nucleotides;
+
+    RNAStrand(List<Nucleotide> nucleotides) {
+
+        this.nucleotides = nucleotides;
+    }
+
+    Nucleotide getNucleotide(int index) {
+        return nucleotides.get(index);
+    }
 }

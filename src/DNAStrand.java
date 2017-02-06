@@ -11,4 +11,8 @@ class DNAStrand {
     Nucleotide getNucleotide(int index) {
         return nucleotides.get(index);
     }
+
+    int getLength() {
+        return this.nucleotides.size();
+    }
 }
