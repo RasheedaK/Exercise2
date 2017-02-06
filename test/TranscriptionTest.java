@@ -8,12 +8,27 @@ import java.util.Map;
 import static org.junit.Assert.*;
 public class TranscriptionTest {
     @Test
-    public void shouldReturnRNAStrandWhichContainsUracilOnCallingTranscription() {
+    public void shouldReturnRNAStrandWhichContainsUracilAtIndex0ForGivenDNA() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription=new Transcription(nucleotideMap);
         List<Nucleotide> nucleotides=new ArrayList<>();
-        RNAStrand expectedRNAStrand=transcription.getRNAComplement("AC");
+        nucleotides.add(new Nucleotide('A'));
+        nucleotides.add(new Nucleotide('G'));
+        DNAStrand dnaStrand=new DNAStrand(nucleotides);
+        RNAStrand expectedRNAStrand=transcription.getRNAComplement(dnaStrand,dnaStrand.getLength());
         assertEquals(new Nucleotide('U'),expectedRNAStrand.getNucleotide(0));
+    }
+
+    @Test
+    public void shouldReturnRNAStrandWhichContainsGuanineAtIndex1ForGivenDNA() {
+        Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
+        Transcription transcription=new Transcription(nucleotideMap);
+        List<Nucleotide> nucleotides=new ArrayList<>();
+        nucleotides.add(new Nucleotide('A'));
+        nucleotides.add(new Nucleotide('C'));
+        DNAStrand dnaStrand=new DNAStrand(nucleotides);
+        RNAStrand expectedRNAStrand=transcription.getRNAComplement(dnaStrand,dnaStrand.getLength());
+        assertEquals(new Nucleotide('G'),expectedRNAStrand.getNucleotide(1));
     }
 
     private Map<Nucleotide, Nucleotide> getNucleotideMap() {
