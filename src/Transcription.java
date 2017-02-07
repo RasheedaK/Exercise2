@@ -16,4 +16,9 @@ class Transcription {
         }
         return new RNAStrand(nucleotides);
     }
+
+    boolean isValidNucleotide(Nucleotide nucleotide) {
+        return nucleotide.equals(new Nucleotide('C')) || nucleotide.equals(new Nucleotide('T')) ||
+                nucleotide.equals(new Nucleotide('A')) || nucleotide.equals(new Nucleotide('G'));
+    }
 }

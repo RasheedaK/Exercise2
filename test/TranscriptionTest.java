@@ -20,7 +20,7 @@ public class TranscriptionTest {
     }
 
     @Test
-    public void shouldReturnUAdenineInRNAStrandForThiamine() {
+    public void shouldReturnAdenineInRNAStrandForThiamine() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
         List<Nucleotide> nucleotides = new ArrayList<>();
@@ -42,14 +42,11 @@ public class TranscriptionTest {
     }
 
     @Test
-    public void shouldReturnAdenineInRNAStrandForThiamine() {
+    public void shouldReturnTrueForGuanineOnCallingIsValidNucleotide() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
-        List<Nucleotide> nucleotides = new ArrayList<>();
-        nucleotides.add(new Nucleotide('T'));
-        DNAStrand dnaStrand = new DNAStrand(nucleotides);
-        RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
-        assertEquals(new Nucleotide('A'), expectedRNAStrand.getNucleotide(0));
+        Nucleotide guanine = new Nucleotide('G');
+        assertTrue(transcription.isValidNucleotide(guanine));
     }
 
     @Test
