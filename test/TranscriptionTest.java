@@ -12,9 +12,9 @@ public class TranscriptionTest {
     public void shouldReturnUracilInRNAStrandForAdenine() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
-        List<Nucleotide> nucleotides = new ArrayList<>();
-        nucleotides.add(new Nucleotide('A'));
-        DNAStrand dnaStrand = new DNAStrand(nucleotides);
+        List<Nucleotide> Nucleotides = new ArrayList<>();
+        Nucleotides.add(new Nucleotide('A'));
+        DNAStrand dnaStrand = new DNAStrand(Nucleotides);
         RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
         assertEquals(new Nucleotide('U'), expectedRNAStrand.getNucleotide(0));
     }
@@ -23,9 +23,9 @@ public class TranscriptionTest {
     public void shouldReturnAdenineInRNAStrandForThiamine() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
-        List<Nucleotide> nucleotides = new ArrayList<>();
-        nucleotides.add(new Nucleotide('U'));
-        DNAStrand dnaStrand = new DNAStrand(nucleotides);
+        List<Nucleotide> Nucleotides = new ArrayList<>();
+        Nucleotides.add(new Nucleotide('T'));
+        DNAStrand dnaStrand = new DNAStrand(Nucleotides);
         RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
         assertEquals(new Nucleotide('A'), expectedRNAStrand.getNucleotide(0));
     }
@@ -34,64 +34,42 @@ public class TranscriptionTest {
     public void shouldReturnCytosineInRNAStrandForGuanine() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
-        List<Nucleotide> nucleotides = new ArrayList<>();
-        nucleotides.add(new Nucleotide('G'));
-        DNAStrand dnaStrand = new DNAStrand(nucleotides);
+        List<Nucleotide> Nucleotides = new ArrayList<>();
+        Nucleotides.add(new Nucleotide('G'));
+        DNAStrand dnaStrand = new DNAStrand(Nucleotides);
         RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
         assertEquals(new Nucleotide('C'), expectedRNAStrand.getNucleotide(0));
-    }
-
-    @Test
-    public void shouldReturnTrueForGuanineOnCallingIsValidNucleotide() {
-        Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
-        Transcription transcription = new Transcription(nucleotideMap);
-        Nucleotide guanine = new Nucleotide('G');
-        assertTrue(transcription.isValidNucleotide(guanine));
     }
 
     @Test
     public void shouldReturnGuanineInRNAStrandForCytosine() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
-        List<Nucleotide> nucleotides = new ArrayList<>();
-        nucleotides.add(new Nucleotide('C'));
-        DNAStrand dnaStrand = new DNAStrand(nucleotides);
+        List<Nucleotide> Nucleotides = new ArrayList<>();
+        Nucleotides.add(new Nucleotide('C'));
+        DNAStrand dnaStrand = new DNAStrand(Nucleotides);
         RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
         assertEquals(new Nucleotide('G'), expectedRNAStrand.getNucleotide(0));
     }
 
     @Test
-    public void shouldReturnRNAStrandWhichContainsUracilAtIndex0ForGivenDNA() {
+    public void shouldReturnExceptionIfUracilGivenForTranscription() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
-        List<Nucleotide> nucleotides = new ArrayList<>();
-        nucleotides.add(new Nucleotide('A'));
-        nucleotides.add(new Nucleotide('G'));
-        DNAStrand dnaStrand = new DNAStrand(nucleotides);
-        RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
-        assertEquals(new Nucleotide('U'), expectedRNAStrand.getNucleotide(0));
-    }
-
-    @Test
-    public void shouldReturnRNAStrandWhichContainsGuanineAtIndex1ForGivenDNA() {
-        Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
-        Transcription transcription = new Transcription(nucleotideMap);
-        List<Nucleotide> nucleotides = new ArrayList<>();
-        nucleotides.add(new Nucleotide('A'));
-        nucleotides.add(new Nucleotide('C'));
-        DNAStrand dnaStrand = new DNAStrand(nucleotides);
-        RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
-        assertEquals(new Nucleotide('G'), expectedRNAStrand.getNucleotide(1));
+        List<Nucleotide> Nucleotides = new ArrayList<>();
+        Nucleotides.add(new Nucleotide('U'));
+        DNAStrand dnaStrand = new DNAStrand(Nucleotides);
+        transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
     }
 
     @Test
     public void shouldNotReturnRNAStrandWhichContainsThiamineAtIndex0ForGivenDNA() {
         Map<Nucleotide, Nucleotide> nucleotideMap = getNucleotideMap();
         Transcription transcription = new Transcription(nucleotideMap);
-        List<Nucleotide> nucleotides = new ArrayList<>();
-        nucleotides.add(new Nucleotide('A'));
-        nucleotides.add(new Nucleotide('C'));
-        DNAStrand dnaStrand = new DNAStrand(nucleotides);
+        List<Nucleotide> Nucleotides = new ArrayList<>();
+        Nucleotides.add(new Nucleotide('A'));
+        Nucleotides.add(new Nucleotide('C'));
+        DNAStrand dnaStrand = new DNAStrand(Nucleotides);
         RNAStrand expectedRNAStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
         assertNotEquals(new Nucleotide('T'), expectedRNAStrand.getNucleotide(0));
     }

@@ -2,7 +2,6 @@ class Nucleotide {
     private final char base;
 
     Nucleotide(char base) {
-
         this.base = base;
     }
 

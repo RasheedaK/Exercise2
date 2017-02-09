@@ -1,18 +1,18 @@
 import java.util.List;
 
 class RNAStrand {
-    private final List<Nucleotide> nucleotides;
+    private final List<Nucleotide> Nucleotides;
 
-    RNAStrand(List<Nucleotide> nucleotides) {
+    RNAStrand(List<Nucleotide> Nucleotides) {
 
-        this.nucleotides = nucleotides;
+        this.Nucleotides = Nucleotides;
     }
 
     Nucleotide getNucleotide(int index) {
-        return nucleotides.get(index);
+        return Nucleotides.get(index);
     }
 
     int getLength() {
-        return this.nucleotides.size();
+        return this.Nucleotides.size();
     }
 }

@@ -10,15 +10,12 @@ class Transcription {
     }
 
     RNAStrand getRNAComplement(DNAStrand dnaStrand, int strandLength) {
-        List<Nucleotide> nucleotides = new ArrayList<>();
+        List<Nucleotide> Nucleotides = new ArrayList<>();
         for (int i = 0; i < strandLength; i++) {
-            nucleotides.add(nucleotideMap.get(dnaStrand.getNucleotide(i)));
+            Nucleotide Nucleotide = nucleotideMap.get(dnaStrand.getNucleotide(i));
+            Nucleotides.add(Nucleotide);
         }
-        return new RNAStrand(nucleotides);
-    }
-
-    boolean isValidNucleotide(Nucleotide nucleotide) {
-        return nucleotide.equals(new Nucleotide('C')) || nucleotide.equals(new Nucleotide('T')) ||
-                nucleotide.equals(new Nucleotide('A')) || nucleotide.equals(new Nucleotide('G'));
+        return new RNAStrand(Nucleotides);
     }
 }
+
