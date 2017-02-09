@@ -6,13 +6,9 @@ public class Main {
         System.out.println("Enter DNA String");
         Scanner sc = new Scanner(System.in);
         String inputString = sc.next();
-        List<Nucleotide> inputStrand = new ArrayList<>();
         System.out.print("Resultant RNAComplement:: ");
-        for (int i = 0; i < inputString.length(); i++) {
-            char character = inputString.charAt(i);
-            inputStrand.add(new Nucleotide(character));
-        }
-        DNAStrand dnaStrand = new DNAStrand(inputStrand);
+        InputParser inputParser=new InputParser();
+        DNAStrand dnaStrand=inputParser.getParsedInput(inputString);
         RNAStrand resultStrand = transcription.getRNAComplement(dnaStrand, dnaStrand.getLength());
         for (int i = 0; i < resultStrand.getLength(); i++) {
             System.out.print(resultStrand.getNucleotide(i).toString());
